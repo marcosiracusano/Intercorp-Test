@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuthUI
+import FirebaseFacebookAuthUI
+import FirebasePhoneAuthUI
+import FBSDKCoreKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, FUIAuthDelegate {
     
     var loginButton: UIButton!
 
@@ -43,13 +48,26 @@ class LoginViewController: UIViewController {
         return button
     }
     
-    @objc func handleTap() {
-        navigationController?.pushViewController(FormViewController(), animated: true)
-    }
-    
     private func setLoginButtonConstraints() {
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    @objc func handleTap() {
+        let authUI = FUIAuth.defaultAuthUI()
+        authUI?.delegate = self
+        
+        let providers: [FUIAuthProvider] = [FUIFacebookAuth(authUI: FUIAuth.defaultAuthUI()!), FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!)]
+        authUI?.providers = providers
+        
+        let authViewController = authUI?.authViewController()
+        present(authViewController!, animated: true)
+    }
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        if authDataResult != nil {
+            navigationController?.pushViewController(FormViewController(), animated: true)
+        }
     }
 }

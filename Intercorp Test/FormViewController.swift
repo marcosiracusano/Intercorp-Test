@@ -22,6 +22,7 @@ class FormViewController: UIViewController {
     var mainStackView: UIStackView!
     
     var saveButton: UIButton!
+    var popupMessage: String = "Cliente guardado"
 
     
     init() {
@@ -57,7 +58,6 @@ class FormViewController: UIViewController {
         setTextFieldConstraint(dateOfBirthTextField)
         setMainStackViewConstraints()
         setSaveButtonConstraints()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -223,6 +223,20 @@ class FormViewController: UIViewController {
                                                     "last_name": client.lastName,
                                                     "age": client.age,
                                                     "date_of_birth": client.dateOfBirth])
+        clientSavedPopup(popupMessage)
+        
+        saveButton.setTitle("Sobreescribir", for: .normal)
+        popupMessage = "Cliente sobreescrito"
+    }
+    
+    private func clientSavedPopup(_ message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        
+        self.present(alert, animated: true, completion: nil)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            alert.dismiss(animated: true, completion: nil)
+        }
     }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuthUI
 import FirebaseDatabaseUI
 
 class FormViewController: UIViewController {
@@ -23,6 +24,8 @@ class FormViewController: UIViewController {
     
     var saveButton: UIButton!
     var popupMessage: String = "Cliente guardado"
+    
+    var logoutButton: UIButton!
 
     
     init() {
@@ -38,7 +41,8 @@ class FormViewController: UIViewController {
         datePicker = createDatePicker()
         dateOfBirthTextField.inputView = datePicker
         
-        saveButton = createButton("Guardar")
+        saveButton = createButton("Guardar", .blue, isEnabled: false)
+        logoutButton = createButton("Cerrar sesión", .red, isEnabled: true)
         
         mainStackView = createStackView(axis: .vertical, distribution: .fillEqually, alignment: .center)
         
@@ -50,6 +54,7 @@ class FormViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(mainStackView)
         view.addSubview(saveButton)
+        view.addSubview(logoutButton)
         
         setTitleLabelConstraints()
         setTextFieldConstraint(firstNameTextField)
@@ -58,6 +63,7 @@ class FormViewController: UIViewController {
         setTextFieldConstraint(dateOfBirthTextField)
         setMainStackViewConstraints()
         setSaveButtonConstraints()
+        setLogoutButtonConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -113,15 +119,12 @@ class FormViewController: UIViewController {
         return picker
     }
     
-    private func createButton(_ title: String) -> UIButton {
+    private func createButton(_ title: String,_ color: UIColor, isEnabled: Bool) -> UIButton {
         let button = UIButton()
         button.setTitle(title, for: .normal)
-        button.setTitleColor(.blue, for: .normal)
+        button.setTitleColor(color, for: .normal)
         button.setTitleColor(.gray, for: .disabled)
-        button.isEnabled = false
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        button.addGestureRecognizer(tap)
+        button.isEnabled = isEnabled
         
         return button
     }
@@ -164,6 +167,12 @@ class FormViewController: UIViewController {
         saveButton.topAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: 30).isActive = true
     }
     
+    private func setLogoutButtonConstraints() {
+        logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        logoutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+    }
+    
     // MARK: - Other methods
     
     private func setupView() {
@@ -172,10 +181,16 @@ class FormViewController: UIViewController {
         ageTextField.keyboardType = .asciiCapableNumberPad
         dateOfBirthTextField.returnKeyType = .done
         
-        let saveButtonTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        let dismissKeyboardTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
-        view.addGestureRecognizer(saveButtonTapGesture)
+        
+        let dismissKeyboardTapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(dismissKeyboardTapGesture)
+        
+        let saveButtonTapGesture = UITapGestureRecognizer(target: self, action: #selector(saveButtonTap))
+        saveButton.addGestureRecognizer(saveButtonTapGesture)
+        
+        let logoutButtonTapGesture = UITapGestureRecognizer(target: self, action: #selector(logoutButtonTap))
+        logoutButton.addGestureRecognizer(logoutButtonTapGesture)
+        
     }
     
     @objc private func dateChanged() {
@@ -201,14 +216,14 @@ class FormViewController: UIViewController {
         saveButton.isEnabled = contentIsValid
     }
     
-    @objc private func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+    @objc private func dismissKeyboard() {
         firstNameTextField.resignFirstResponder()
         lastNameTextField.resignFirstResponder()
         ageTextField.resignFirstResponder()
         dateOfBirthTextField.resignFirstResponder()
     }
     
-    @objc func handleTap() {
+    @objc func saveButtonTap() {
         let newClient = Client(firstName: firstNameTextField.text,
                                lastName: lastNameTextField.text,
                                age: ageTextField.text,
@@ -227,6 +242,8 @@ class FormViewController: UIViewController {
         
         saveButton.setTitle("Sobreescribir", for: .normal)
         popupMessage = "Cliente sobreescrito"
+        
+        dismissKeyboard()
     }
     
     private func clientSavedPopup(_ message: String) {
@@ -237,6 +254,23 @@ class FormViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             alert.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    @objc func logoutButtonTap() {
+        let alert = UIAlertController(title: nil, message: "¿Seguro que deseas cerrar sesión?", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Aceptar", style: .destructive, handler: { completion in
+            let authUI = FUIAuth.defaultAuthUI()
+            do {
+                try authUI?.signOut()
+                self.navigationController?.popViewController(animated: true)
+            } catch {
+                print(error)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true)
     }
 }
 

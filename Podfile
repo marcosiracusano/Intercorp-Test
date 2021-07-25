@@ -5,7 +5,13 @@ target 'Intercorp Test' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Intercorp Test
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  
+  pod 'FirebaseUI'
+  
+  pod 'FBSDKLoginKit'
 
   target 'Intercorp TestTests' do
     inherit! :search_paths

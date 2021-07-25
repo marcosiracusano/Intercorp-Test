@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseDatabaseUI
 
 class FormViewController: UIViewController {
 
@@ -167,7 +168,15 @@ class FormViewController: UIViewController {
                                age: ageTextField.text,
                                dateOfBirth: dateOfBirthTextField.text)
         
-        // Subir a Database
+        saveClient(newClient)
+    }
+    
+    private func saveClient(_ client: Client) {
+        let databaseReference = Database.database().reference()
+        databaseReference.child("client").setValue(["first_name": client.firstName,
+                                                    "last_name": client.lastName,
+                                                    "age": client.age,
+                                                    "date_of_birth": client.dateOfBirth])
     }
 }
 

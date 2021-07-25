@@ -11,25 +11,33 @@ import FirebaseDatabaseUI
 class FormViewController: UIViewController {
 
     var titleLabel: UILabel!
+    
     var firstNameTextField: UITextField!
     var lastNameTextField: UITextField!
     var ageTextField: UITextField!
     var dateOfBirthTextField: UITextField!
-    var button: UIButton!
+
+    var datePicker: UIDatePicker!
+    
     var mainStackView: UIStackView!
+    
+    var saveButton: UIButton!
 
     
     init() {
         super.init(nibName: nil, bundle: nil)
         
-        titleLabel = createTitleLabel("Creación de Cliente")
+        titleLabel = createLabel("Creación de Cliente", .boldSystemFont(ofSize: 25), .black)
         
         firstNameTextField = createTextField(placeholder: "Nombre")
         lastNameTextField = createTextField(placeholder: "Apellido")
         ageTextField = createTextField(placeholder: "Edad")
         dateOfBirthTextField = createTextField(placeholder: "Fecha de nacimiento")
         
-        button = createButton()
+        datePicker = createDatePicker()
+        dateOfBirthTextField.inputView = datePicker
+        
+        saveButton = createButton("Guardar")
         
         mainStackView = createStackView(axis: .vertical, distribution: .fillEqually, alignment: .center)
         
@@ -37,17 +45,19 @@ class FormViewController: UIViewController {
         mainStackView.addArrangedSubview(lastNameTextField)
         mainStackView.addArrangedSubview(ageTextField)
         mainStackView.addArrangedSubview(dateOfBirthTextField)
-        mainStackView.addArrangedSubview(button)
         
         view.addSubview(titleLabel)
         view.addSubview(mainStackView)
+        view.addSubview(saveButton)
         
         setTitleLabelConstraints()
         setTextFieldConstraint(firstNameTextField)
         setTextFieldConstraint(lastNameTextField)
         setTextFieldConstraint(ageTextField)
         setTextFieldConstraint(dateOfBirthTextField)
-        setStackViewConstraints()
+        setMainStackViewConstraints()
+        setSaveButtonConstraints()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -69,11 +79,11 @@ class FormViewController: UIViewController {
     
     // MARK: - Creational methods
     
-    private func createTitleLabel(_ text: String) -> UILabel {
+    private func createLabel(_ text: String,_ font: UIFont,_ color: UIColor) -> UILabel {
         let label = UILabel()
         label.text = text
-        label.font = .boldSystemFont(ofSize: 25)
-        label.textColor = .black
+        label.font = font
+        label.textColor = color
         
         return label
     }
@@ -88,14 +98,24 @@ class FormViewController: UIViewController {
         textField.spellCheckingType = .no
         textField.autocorrectionType = .no
         
-        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .allEditingEvents)
         
         return textField
     }
     
-    private func createButton() -> UIButton {
+    private func createDatePicker() -> UIDatePicker {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .date
+        picker.preferredDatePickerStyle = .wheels
+        
+        picker.addTarget(self, action: #selector(self.dateChanged), for: .allEvents)
+        
+        return picker
+    }
+    
+    private func createButton(_ title: String) -> UIButton {
         let button = UIButton()
-        button.setTitle("Guardar", for: .normal)
+        button.setTitle(title, for: .normal)
         button.setTitleColor(.blue, for: .normal)
         button.setTitleColor(.gray, for: .disabled)
         button.isEnabled = false
@@ -125,7 +145,12 @@ class FormViewController: UIViewController {
         titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
     }
     
-    private func setStackViewConstraints() {
+    private func setTextFieldConstraint(_ textField: UITextField) {
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.widthAnchor.constraint(equalTo: mainStackView.widthAnchor).isActive = true
+    }
+    
+    private func setMainStackViewConstraints() {
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         mainStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50).isActive = true
         mainStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -133,9 +158,10 @@ class FormViewController: UIViewController {
         mainStackView.heightAnchor.constraint(equalToConstant: 202).isActive = true
     }
 
-    private func setTextFieldConstraint(_ textField: UITextField) {
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.widthAnchor.constraint(equalTo: mainStackView.widthAnchor).isActive = true
+    private func setSaveButtonConstraints() {
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        saveButton.topAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: 30).isActive = true
     }
     
     // MARK: - Other methods
@@ -146,20 +172,40 @@ class FormViewController: UIViewController {
         ageTextField.keyboardType = .asciiCapableNumberPad
         dateOfBirthTextField.returnKeyType = .done
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        view.addGestureRecognizer(tap)
+        let saveButtonTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        let dismissKeyboardTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        view.addGestureRecognizer(saveButtonTapGesture)
+        view.addGestureRecognizer(dismissKeyboardTapGesture)
+    }
+    
+    @objc private func dateChanged() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        dateOfBirthTextField.text = "\(dateFormatter.string(from: datePicker.date))"
+        textFieldDidChange()
     }
     
     @objc private func textFieldDidChange() {
         var contentIsValid = true
         
-        let textFields = [firstNameTextField, lastNameTextField, ageTextField, dateOfBirthTextField]
+        let textFields: [UITextField] = [firstNameTextField, lastNameTextField, ageTextField, dateOfBirthTextField]
         
         for textField in textFields {
-            contentIsValid = textField?.hasText ?? false
+            if !textField.hasText {
+                contentIsValid = false
+                break
+            }
         }
         
-        button.isEnabled = contentIsValid
+        saveButton.isEnabled = contentIsValid
+    }
+    
+    @objc private func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        firstNameTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
+        ageTextField.resignFirstResponder()
+        dateOfBirthTextField.resignFirstResponder()
     }
     
     @objc func handleTap() {

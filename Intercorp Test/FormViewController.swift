@@ -56,7 +56,13 @@ class FormViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        ageTextField.delegate = self
+        dateOfBirthTextField.delegate = self
+        
+        setupView()
     }
     
     
@@ -80,7 +86,9 @@ class FormViewController: UIViewController {
         textField.textColor = .darkGray
         textField.spellCheckingType = .no
         textField.autocorrectionType = .no
-                
+        
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        
         return textField
     }
     
@@ -89,6 +97,10 @@ class FormViewController: UIViewController {
         button.setTitle("Guardar", for: .normal)
         button.setTitleColor(.blue, for: .normal)
         button.setTitleColor(.gray, for: .disabled)
+        button.isEnabled = false
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        button.addGestureRecognizer(tap)
         
         return button
     }
@@ -124,5 +136,57 @@ class FormViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.widthAnchor.constraint(equalTo: mainStackView.widthAnchor).isActive = true
     }
+    
+    // MARK: - Other methods
+    
+    private func setupView() {
+        view.backgroundColor = .white
+        
+        ageTextField.keyboardType = .asciiCapableNumberPad
+        dateOfBirthTextField.returnKeyType = .done
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func textFieldDidChange() {
+        var contentIsValid = true
+        
+        let textFields = [firstNameTextField, lastNameTextField, ageTextField, dateOfBirthTextField]
+        
+        for textField in textFields {
+            contentIsValid = textField?.hasText ?? false
+        }
+        
+        button.isEnabled = contentIsValid
+    }
+    
+    @objc func handleTap() {
+        let newClient = Client(firstName: firstNameTextField.text,
+                               lastName: lastNameTextField.text,
+                               age: ageTextField.text,
+                               dateOfBirth: dateOfBirthTextField.text)
+        
+        // Subir a Database
+    }
 }
 
+// MARK: - UITextFieldDelegate
+
+extension FormViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+            case firstNameTextField:
+                lastNameTextField.becomeFirstResponder()
+            case lastNameTextField:
+                ageTextField.becomeFirstResponder()
+            case ageTextField:
+                dateOfBirthTextField.becomeFirstResponder()
+            default:
+                dateOfBirthTextField.resignFirstResponder()
+            }
+
+            return true
+    }
+}

@@ -19,6 +19,7 @@
 		EE072E9F26AD88920010FF39 /* Intercorp_TestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE072E9E26AD88920010FF39 /* Intercorp_TestUITests.swift */; };
 		EE072EAF26AD97830010FF39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE072EAE26AD97830010FF39 /* GoogleService-Info.plist */; };
 		EE072EB126AD9A9C0010FF39 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE072EB026AD9A9C0010FF39 /* LoginViewController.swift */; };
+		EE072EB326ADBBDB0010FF39 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE072EB226ADBBDB0010FF39 /* Client.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		EE072EA026AD88920010FF39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE072EAE26AD97830010FF39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE072EB026AD9A9C0010FF39 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EE072EB226ADBBDB0010FF39 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				EE072E8726AD88920010FF39 /* LaunchScreen.storyboard */,
 				EE072EAE26AD97830010FF39 /* GoogleService-Info.plist */,
 				EE072E8A26AD88920010FF39 /* Info.plist */,
+				EE072EB226ADBBDB0010FF39 /* Client.swift */,
 			);
 			path = "Intercorp Test";
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				EE072EB126AD9A9C0010FF39 /* LoginViewController.swift in Sources */,
 				EE072E8126AD88900010FF39 /* FormViewController.swift in Sources */,
 				EE072E7D26AD88900010FF39 /* AppDelegate.swift in Sources */,
+				EE072EB326ADBBDB0010FF39 /* Client.swift in Sources */,
 				EE072E7F26AD88900010FF39 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

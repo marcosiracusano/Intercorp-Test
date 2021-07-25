@@ -113,6 +113,7 @@ class FormViewController: UIViewController {
         let picker = UIDatePicker()
         picker.datePickerMode = .date
         picker.preferredDatePickerStyle = .wheels
+        picker.maximumDate = Date()
         
         picker.addTarget(self, action: #selector(self.dateChanged), for: .allEvents)
         

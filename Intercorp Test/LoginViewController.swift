@@ -37,6 +37,11 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         view.backgroundColor = .white
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     private func createButton() -> UIButton {
         let button = UIButton()
         button.setTitle("Iniciar sesión", for: .normal)

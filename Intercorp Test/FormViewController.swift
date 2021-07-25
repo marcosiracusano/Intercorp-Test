@@ -224,20 +224,22 @@ class FormViewController: UIViewController {
     }
     
     @objc func saveButtonTap() {
-        let newClient = Client(firstName: firstNameTextField.text,
-                               lastName: lastNameTextField.text,
-                               age: ageTextField.text,
-                               dateOfBirth: dateOfBirthTextField.text)
+        let newClient = Client(firstName: firstNameTextField.text ?? "",
+                               lastName: lastNameTextField.text ?? "",
+                               age: ageTextField.text ?? "",
+                               dateOfBirth: dateOfBirthTextField.text ?? "")
         
         saveClient(newClient)
     }
     
     private func saveClient(_ client: Client) {
         let databaseReference = Database.database().reference()
-        databaseReference.child("client").setValue(["first_name": client.firstName,
-                                                    "last_name": client.lastName,
-                                                    "age": client.age,
-                                                    "date_of_birth": client.dateOfBirth])
+        let userId: String = Auth.auth().currentUser?.uid ?? client.lastName
+        
+        databaseReference.child("users").child(userId).setValue(["first_name": client.firstName,
+                                                                 "last_name": client.lastName,
+                                                                 "age": client.age,
+                                                                 "date_of_birth": client.dateOfBirth])
         clientSavedPopup(popupMessage)
         
         saveButton.setTitle("Sobreescribir", for: .normal)

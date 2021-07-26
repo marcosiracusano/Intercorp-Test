@@ -59,7 +59,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
-    @objc func handleTap() {
+    @objc private func handleTap() {
         let authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = self
         

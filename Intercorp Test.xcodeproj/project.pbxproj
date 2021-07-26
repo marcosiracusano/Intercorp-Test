@@ -7,30 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1DF54D72D68481107CF54122 /* Pods_Intercorp_Test_Intercorp_TestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC691A48761D4E720FFF87C /* Pods_Intercorp_Test_Intercorp_TestUITests.framework */; };
 		345642230F3EFD171E9B1623 /* Pods_Intercorp_TestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341CBCA9DE098A3E6DB2C7B6 /* Pods_Intercorp_TestTests.framework */; };
 		61551FFE7C8C117FDFDF179C /* Pods_Intercorp_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E31D581DDDA48DFD16E8ADA /* Pods_Intercorp_Test.framework */; };
 		EE072E7D26AD88900010FF39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE072E7C26AD88900010FF39 /* AppDelegate.swift */; };
 		EE072E7F26AD88900010FF39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE072E7E26AD88900010FF39 /* SceneDelegate.swift */; };
 		EE072E8126AD88900010FF39 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE072E8026AD88900010FF39 /* FormViewController.swift */; };
 		EE072E8626AD88920010FF39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE072E8526AD88920010FF39 /* Assets.xcassets */; };
-		EE072E8926AD88920010FF39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE072E8726AD88920010FF39 /* LaunchScreen.storyboard */; };
-		EE072E9426AD88920010FF39 /* Intercorp_TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE072E9326AD88920010FF39 /* Intercorp_TestTests.swift */; };
-		EE072E9F26AD88920010FF39 /* Intercorp_TestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE072E9E26AD88920010FF39 /* Intercorp_TestUITests.swift */; };
+		EE072E9426AD88920010FF39 /* FormViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE072E9326AD88920010FF39 /* FormViewControllerTests.swift */; };
 		EE072EAF26AD97830010FF39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE072EAE26AD97830010FF39 /* GoogleService-Info.plist */; };
 		EE072EB126AD9A9C0010FF39 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE072EB026AD9A9C0010FF39 /* LoginViewController.swift */; };
 		EE072EB326ADBBDB0010FF39 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE072EB226ADBBDB0010FF39 /* Client.swift */; };
+		EE072EB726AF58850010FF39 /* ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE072EB626AF58850010FF39 /* ClientTests.swift */; };
+		EE072EB926AF5A040010FF39 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE072EB826AF5A040010FF39 /* LoginViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		EE072E9026AD88920010FF39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE072E7126AD88900010FF39 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EE072E7826AD88900010FF39;
-			remoteInfo = "Intercorp Test";
-		};
-		EE072E9B26AD88920010FF39 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EE072E7126AD88900010FF39 /* Project object */;
 			proxyType = 1;
@@ -54,17 +46,15 @@
 		EE072E7E26AD88900010FF39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EE072E8026AD88900010FF39 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		EE072E8526AD88920010FF39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EE072E8826AD88920010FF39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE072E8A26AD88920010FF39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE072E8F26AD88920010FF39 /* Intercorp TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Intercorp TestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE072E9326AD88920010FF39 /* Intercorp_TestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intercorp_TestTests.swift; sourceTree = "<group>"; };
+		EE072E9326AD88920010FF39 /* FormViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewControllerTests.swift; sourceTree = "<group>"; };
 		EE072E9526AD88920010FF39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE072E9A26AD88920010FF39 /* Intercorp TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Intercorp TestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE072E9E26AD88920010FF39 /* Intercorp_TestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intercorp_TestUITests.swift; sourceTree = "<group>"; };
-		EE072EA026AD88920010FF39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE072EAE26AD97830010FF39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE072EB026AD9A9C0010FF39 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EE072EB226ADBBDB0010FF39 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		EE072EB626AF58850010FF39 /* ClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTests.swift; sourceTree = "<group>"; };
+		EE072EB826AF5A040010FF39 /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,14 +71,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				345642230F3EFD171E9B1623 /* Pods_Intercorp_TestTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE072E9726AD88920010FF39 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1DF54D72D68481107CF54122 /* Pods_Intercorp_Test_Intercorp_TestUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +105,6 @@
 			children = (
 				EE072E7B26AD88900010FF39 /* Intercorp Test */,
 				EE072E9226AD88920010FF39 /* Intercorp TestTests */,
-				EE072E9D26AD88920010FF39 /* Intercorp TestUITests */,
 				EE072E7A26AD88900010FF39 /* Products */,
 				B4CB293A4878C1116561F49C /* Pods */,
 				AA36BB1355816351227BAF8D /* Frameworks */,
@@ -135,7 +116,6 @@
 			children = (
 				EE072E7926AD88900010FF39 /* Intercorp Test.app */,
 				EE072E8F26AD88920010FF39 /* Intercorp TestTests.xctest */,
-				EE072E9A26AD88920010FF39 /* Intercorp TestUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,15 +123,11 @@
 		EE072E7B26AD88900010FF39 /* Intercorp Test */ = {
 			isa = PBXGroup;
 			children = (
-				EE072E7C26AD88900010FF39 /* AppDelegate.swift */,
-				EE072E7E26AD88900010FF39 /* SceneDelegate.swift */,
-				EE072E8026AD88900010FF39 /* FormViewController.swift */,
-				EE072EB026AD9A9C0010FF39 /* LoginViewController.swift */,
-				EE072E8526AD88920010FF39 /* Assets.xcassets */,
-				EE072E8726AD88920010FF39 /* LaunchScreen.storyboard */,
+				EE072EBC26AF5CF40010FF39 /* Model */,
+				EE072EBB26AF5CE20010FF39 /* ViewControllers */,
+				EE072EBA26AF5CD70010FF39 /* Main */,
 				EE072EAE26AD97830010FF39 /* GoogleService-Info.plist */,
 				EE072E8A26AD88920010FF39 /* Info.plist */,
-				EE072EB226ADBBDB0010FF39 /* Client.swift */,
 			);
 			path = "Intercorp Test";
 			sourceTree = "<group>";
@@ -159,19 +135,39 @@
 		EE072E9226AD88920010FF39 /* Intercorp TestTests */ = {
 			isa = PBXGroup;
 			children = (
-				EE072E9326AD88920010FF39 /* Intercorp_TestTests.swift */,
+				EE072E9326AD88920010FF39 /* FormViewControllerTests.swift */,
+				EE072EB826AF5A040010FF39 /* LoginViewControllerTests.swift */,
+				EE072EB626AF58850010FF39 /* ClientTests.swift */,
 				EE072E9526AD88920010FF39 /* Info.plist */,
 			);
 			path = "Intercorp TestTests";
 			sourceTree = "<group>";
 		};
-		EE072E9D26AD88920010FF39 /* Intercorp TestUITests */ = {
+		EE072EBA26AF5CD70010FF39 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				EE072E9E26AD88920010FF39 /* Intercorp_TestUITests.swift */,
-				EE072EA026AD88920010FF39 /* Info.plist */,
+				EE072E7C26AD88900010FF39 /* AppDelegate.swift */,
+				EE072E7E26AD88900010FF39 /* SceneDelegate.swift */,
+				EE072E8526AD88920010FF39 /* Assets.xcassets */,
 			);
-			path = "Intercorp TestUITests";
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EE072EBB26AF5CE20010FF39 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EE072E8026AD88900010FF39 /* FormViewController.swift */,
+				EE072EB026AD9A9C0010FF39 /* LoginViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EE072EBC26AF5CF40010FF39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE072EB226ADBBDB0010FF39 /* Client.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,27 +212,6 @@
 			productReference = EE072E8F26AD88920010FF39 /* Intercorp TestTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		EE072E9926AD88920010FF39 /* Intercorp TestUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EE072EA926AD88920010FF39 /* Build configuration list for PBXNativeTarget "Intercorp TestUITests" */;
-			buildPhases = (
-				501E436CD19159E4AD8D51CF /* [CP] Check Pods Manifest.lock */,
-				EE072E9626AD88920010FF39 /* Sources */,
-				EE072E9726AD88920010FF39 /* Frameworks */,
-				EE072E9826AD88920010FF39 /* Resources */,
-				BE5ECEA6DCCB9B351F4CD0F2 /* [CP] Embed Pods Frameworks */,
-				50634DF20CC7010EB665B47C /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EE072E9C26AD88920010FF39 /* PBXTargetDependency */,
-			);
-			name = "Intercorp TestUITests";
-			productName = "Intercorp TestUITests";
-			productReference = EE072E9A26AD88920010FF39 /* Intercorp TestUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -250,10 +225,6 @@
 						CreatedOnToolsVersion = 12.5.1;
 					};
 					EE072E8E26AD88920010FF39 = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = EE072E7826AD88900010FF39;
-					};
-					EE072E9926AD88920010FF39 = {
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = EE072E7826AD88900010FF39;
 					};
@@ -274,7 +245,6 @@
 			targets = (
 				EE072E7826AD88900010FF39 /* Intercorp Test */,
 				EE072E8E26AD88920010FF39 /* Intercorp TestTests */,
-				EE072E9926AD88920010FF39 /* Intercorp TestUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -284,20 +254,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE072E8926AD88920010FF39 /* LaunchScreen.storyboard in Resources */,
 				EE072E8626AD88920010FF39 /* Assets.xcassets in Resources */,
 				EE072EAF26AD97830010FF39 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EE072E8D26AD88920010FF39 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE072E9826AD88920010FF39 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -324,45 +286,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Intercorp Test/Pods-Intercorp Test-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		501E436CD19159E4AD8D51CF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Intercorp Test-Intercorp TestUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		50634DF20CC7010EB665B47C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Intercorp Test-Intercorp TestUITests/Pods-Intercorp Test-Intercorp TestUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Intercorp Test-Intercorp TestUITests/Pods-Intercorp Test-Intercorp TestUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Intercorp Test-Intercorp TestUITests/Pods-Intercorp Test-Intercorp TestUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		60519CD95221D23D57E8264B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -383,23 +306,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BE5ECEA6DCCB9B351F4CD0F2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Intercorp Test-Intercorp TestUITests/Pods-Intercorp Test-Intercorp TestUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Intercorp Test-Intercorp TestUITests/Pods-Intercorp Test-Intercorp TestUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Intercorp Test-Intercorp TestUITests/Pods-Intercorp Test-Intercorp TestUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CD08AEEB10082A3D02E37029 /* [CP] Check Pods Manifest.lock */ = {
@@ -460,15 +366,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE072E9426AD88920010FF39 /* Intercorp_TestTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE072E9626AD88920010FF39 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EE072E9F26AD88920010FF39 /* Intercorp_TestUITests.swift in Sources */,
+				EE072EB926AF5A040010FF39 /* LoginViewControllerTests.swift in Sources */,
+				EE072EB726AF58850010FF39 /* ClientTests.swift in Sources */,
+				EE072E9426AD88920010FF39 /* FormViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,23 +380,7 @@
 			target = EE072E7826AD88900010FF39 /* Intercorp Test */;
 			targetProxy = EE072E9026AD88920010FF39 /* PBXContainerItemProxy */;
 		};
-		EE072E9C26AD88920010FF39 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EE072E7826AD88900010FF39 /* Intercorp Test */;
-			targetProxy = EE072E9B26AD88920010FF39 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		EE072E8726AD88920010FF39 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EE072E8826AD88920010FF39 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EE072EA126AD88920010FF39 /* Debug */ = {
@@ -701,48 +585,6 @@
 			};
 			name = Release;
 		};
-		EE072EAA26AD88920010FF39 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 593A73F45F529F2AC8BAB9FE /* Pods-Intercorp Test-Intercorp TestUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q4JNA7F964;
-				INFOPLIST_FILE = "Intercorp TestUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "marcosiracusano.Intercorp-TestUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Intercorp Test";
-			};
-			name = Debug;
-		};
-		EE072EAB26AD88920010FF39 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0F353975504790CF3138DB03 /* Pods-Intercorp Test-Intercorp TestUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q4JNA7F964;
-				INFOPLIST_FILE = "Intercorp TestUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "marcosiracusano.Intercorp-TestUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Intercorp Test";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -769,15 +611,6 @@
 			buildConfigurations = (
 				EE072EA726AD88920010FF39 /* Debug */,
 				EE072EA826AD88920010FF39 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EE072EA926AD88920010FF39 /* Build configuration list for PBXNativeTarget "Intercorp TestUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EE072EAA26AD88920010FF39 /* Debug */,
-				EE072EAB26AD88920010FF39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

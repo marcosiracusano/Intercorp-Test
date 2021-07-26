@@ -12,20 +12,15 @@ import FirebaseDatabaseUI
 class FormViewController: UIViewController {
 
     var titleLabel: UILabel!
-    
     var firstNameTextField: UITextField!
     var lastNameTextField: UITextField!
     var ageTextField: UITextField!
     var dateOfBirthTextField: UITextField!
-
     var datePicker: UIDatePicker!
-    
-    var mainStackView: UIStackView!
-    
     var saveButton: UIButton!
-    var popupMessage: String = "Cliente guardado"
-    
     var logoutButton: UIButton!
+    var mainStackView: UIStackView!
+    var popupMessage: String = "Cliente guardado"
 
     
     init() {
@@ -224,7 +219,7 @@ class FormViewController: UIViewController {
         dateOfBirthTextField.resignFirstResponder()
     }
     
-    @objc func saveButtonTap() {
+    @objc private func saveButtonTap() {
         let newClient = Client(firstName: firstNameTextField.text ?? "",
                                lastName: lastNameTextField.text ?? "",
                                age: ageTextField.text ?? "",
@@ -259,7 +254,7 @@ class FormViewController: UIViewController {
         }
     }
     
-    @objc func logoutButtonTap() {
+    @objc private func logoutButtonTap() {
         let alert = UIAlertController(title: nil, message: "¿Seguro que deseas cerrar sesión?", preferredStyle: .alert)
 
         alert.addAction(UIAlertAction(title: "Aceptar", style: .destructive, handler: { completion in
